@@ -76,11 +76,13 @@ class ButtonStaggerAnimation extends StatelessWidget {
         return SizedBox(
           height: buttonHeight,
           width: widthAnimation.value,
-          child: RaisedButton(
-            shape: RoundedRectangleBorder(
-              borderRadius: borderRadiusAnimation.value,
-            ),
-            color: color,
+          child: ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(color),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                  borderRadius: borderRadiusAnimation.value,
+                ))),
             child: _buttonChild(),
             onPressed: () {
               this.onPressed(controller);
